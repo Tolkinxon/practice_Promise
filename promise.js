@@ -32,5 +32,17 @@ const res = new Promise((resolve) => {
     resolve(car)
 })
 
-res.then((data) => {console.log(data)})
+res.then((data) => {
+    console.log('request data2');
+
+    return new Promise((resolve) => {
+    console.log('request data3');
+        resolve(data.age = 8)
+    })
+}).then((data) => {console.log(data);})
+
+
+
+
+
 
