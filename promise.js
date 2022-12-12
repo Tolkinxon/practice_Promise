@@ -32,14 +32,24 @@ const res = new Promise((resolve) => {
     resolve(car)
 })
 
+
 res.then((data) => {
     console.log('request data2');
 
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
     console.log('request data3');
-        resolve(data.age = 8)
+    data.age = 8
+
+        if(data.age < 3){
+            resolve(data.age)
+            
+        }
+        else{
+            reject('reject')
+        }
     })
-}).then((data) => {console.log(data);})
+}).then((data) => {console.log(data)}).catch((data) => {console.log(data);})
+
 
 
 
